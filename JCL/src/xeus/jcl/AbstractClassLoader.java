@@ -24,7 +24,7 @@
  *  Web:    http://xeustech.blogspot.com
  */
 
-package xeus.jcl;
+package JCL.src.xeus.jcl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -42,9 +42,13 @@ import xeus.jcl.loader.Loader;
  * @author Kamran Zafar
  * 
  */
+
+/*동적 jar파일 할당을 위해서 AbstactClassLoader를 생성 */
 @SuppressWarnings("unchecked")
 public abstract class AbstractClassLoader extends ClassLoader {
 
+    /* 여기서 Loader는 order(순서)를 맞추고 Stream을 열어주는 역할을 한다.
+    *  ClassLoader를 extend 한다  */
     protected final List<Loader> loaders = new ArrayList<Loader>();
 
     private final Loader systemLoader = new SystemLoader();
@@ -83,6 +87,9 @@ public abstract class AbstractClassLoader extends ClassLoader {
      */
     @Override
     public Class loadClass(String className, boolean resolveIt) throws ClassNotFoundException {
+
+        /* 어떤 Ordering 순서 ( current system parent 를 맞추어서 ) 를 맞추어서 class를 laoding */
+        /* Override 전  classLoader의 null check 혹은 synchronized가 빠져 있다. */
         Collections.sort( loaders );
         Class clazz = null;
         for( Loader l : loaders ) {
@@ -190,6 +197,7 @@ public abstract class AbstractClassLoader extends ClassLoader {
             }
 
             if( logger.isTraceEnabled() )
+                /* logger를 통해서 load 시의 classLoader 를 표기한다.   */
                 logger.trace( "Returning class " + className + " loaded with parent classloader" );
 
             return result;
