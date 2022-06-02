@@ -1,6 +1,6 @@
-package Dynamic_ClassLoader;
+package Machine;
 
-public class Car extends Machine {
+public class Car extends A_Machine {
 
     public final String MACHINE_TYPE_B = "Computer";
 

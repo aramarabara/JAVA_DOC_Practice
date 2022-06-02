@@ -1,6 +1,6 @@
-package Dynamic_ClassLoader;
+package Machine;
 
-public class Machine {
+public class A_Machine {
 
     /* 기계의 속성 */
     private String name;
@@ -10,9 +10,9 @@ public class Machine {
     /*ETC.. */
 
     /*Basic Contructor*/
-    public Machine() {super();}
+    public A_Machine() {super();}
 
-    public Machine(String name, String type, int price, String owner) {
+    public A_Machine(String name, String type, int price, String owner) {
         this.name = name;
         this.type = type;
         this.price = price;
