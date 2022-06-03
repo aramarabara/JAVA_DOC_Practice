@@ -10,6 +10,8 @@ public class Classclass {
         System.out.println(animal.eat());
 
 
+
+
     }
 
 }
