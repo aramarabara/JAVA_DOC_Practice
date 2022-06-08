@@ -1,7 +1,6 @@
 package classLoader;
 
 import Animal.Animal;
-import JCL.src.xeus.jcl.JarClassLoader;
 import Machine.A_Machine;
 
 import java.io.IOException;
@@ -44,14 +43,14 @@ public class Classclass {
         *
         * */
 
-        JarClassLoader jarLoader = new JarClassLoader();
+        /*JarClassLoader jarLoader = new JarClassLoader();
         // JAR파일에 대한 path 삽입 시 동적으로 할당하는 외부 라이브러리
         // io 및 classCastException을 throw 해준다
         jarLoader.add("Machine");
         jarLoader.add("Desktop_Path");
         //ClassNotFoundException 추가한다.
         jarLoader.loadClass("Animal");
-
+*/
         // 동적 로드 시도하여 클래스가 제대로 로드된다면 성공
 
     }
