@@ -16,6 +16,7 @@ import java.lang.management.GarbageCollectorMXBean;
 * 그 원본이 되는 모니터링 코드가 바로 GarbageCollectorMXBean을 활용한 것이다.
 * 출처 : http://daplus.net/java-jvm%EA%B3%BC-hotspot%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C/
 * 영상 : https://www.youtube.com/watch?v=f0bdSMZoCw8
+*
 * */
 
 /*

@@ -31,12 +31,13 @@ public class Classclass {
          *   외부 라이브러리로 첨부하여 할당한다.
          *
          * */
-        Animal animal = new Animal();
-        A_Machine machine = new A_Machine();
-        // 확인 작업
-        System.out.println(animal.eat());
-        System.out.println(machine.run(true));
-
+        while(true) {
+            Animal animal = new Animal();
+            A_Machine machine = new A_Machine();
+            // 확인 작업
+            System.out.println(animal.eat());
+            System.out.println(machine.run(true));
+        }
         /*
         *   2. Custom_classLoader를 불러 동적 JAR 할당을 시도한다.
         *
