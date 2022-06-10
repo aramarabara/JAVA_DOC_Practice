@@ -87,6 +87,30 @@ public class Memory {
             e.printStackTrace();
         }
 
+        /*4. stack 구조 실습
+        *
+        *  Queue가 Interface형식인 반면 Stack은 Class이다.
+        *   Vector 클래스를 상속한다.
+        * 특이한 점은 RandomAccess를 Implement 한다는 점이다.
+        *
+        * JAVA 1.0부터 존재하던 Legacy class이다. (이후에는 Collection Framework 사용함 )
+        *
+        * 배열기반이며, 가변적인 크기를 가진다 ( default는 10 )
+        *
+        * Iterator 기반으로 반복문 동작할 수 있으나 역시 Queue의 사례와 같이 ConcurrentModificationException 발생시킨다.
+        *
+        * Synchronized, 즉 멀티쓰레드에서 Thread-safe를 보증한다.
+        *   <> ArrayList와는 대조적
+        * */
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < 10; i++) { stack.push(i); }
+
+        Vector<Integer> vector = new Vector<>();
+        for (int i = 0; i < 20; i++) { vector.add(i); }
+
+
+
+
     }
 
 }
