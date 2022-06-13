@@ -1,4 +1,4 @@
-package OOP;
+package OOP.GoodPoint;
 
 // 이름을 DriveCarInBusan으로 짓는다면 부산에서 차를 모는 과정을
 // 시뮬레이션 할 수 있습니다.

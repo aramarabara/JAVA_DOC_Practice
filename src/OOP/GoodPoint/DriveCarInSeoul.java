@@ -1,4 +1,4 @@
-package OOP;
+package OOP.GoodPoint;
 public class DriveCarInSeoul {
 
     //main이라고 하는 메서드를 통해서 상황을 실행시켜 볼 수 있습니다.
