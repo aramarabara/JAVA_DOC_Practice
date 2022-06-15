@@ -1,5 +1,9 @@
 package OOP.inheritance;
 
+import OOP.inheritance.CarComponent.CarSheet;
+import OOP.inheritance.CarComponent.Engine;
+import OOP.inheritance.CarComponent.Wheel;
+
 public class Car {
 
     // 차는 "엔진 회전수"를 속성으로 가집니다.
@@ -8,6 +12,13 @@ public class Car {
     int numberOfTire;
     // 차는 "주행거리"를 속성으로 가집니다.
     long distanceDriven;
+
+    // 변수가 아닌 Class를 통해서 차와 - 부품들의 Has-a 관계를 묘사합니다.
+    // 클래스는 다른 클래스를 "속성"으로 가질 수 (HAS-A) 있습니다.
+    CarSheet carSheet = new CarSheet();
+    Engine engine = new Engine();
+    Wheel wheel = new Wheel();
+
 
     public void drive(String owner) {
         //차는 "운전할 수 있는" 기능이 있습니다.
