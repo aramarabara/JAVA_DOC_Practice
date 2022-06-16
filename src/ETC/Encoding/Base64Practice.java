@@ -19,5 +19,6 @@ public class Base64Practice {
         byte[] decodedBytes = decoder.decode(bytes);
         String decodedString = new String(decodedBytes, "UTF-8");
         System.out.println(decodedString);
+
     }
 }
