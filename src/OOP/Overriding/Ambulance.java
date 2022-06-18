@@ -24,4 +24,13 @@ public class Ambulance extends Car {
         System.out.println("ambulance drive with  paramedics");
         super.drive(owner);
     }
+
+
+    /*@Override
+    public void drive(String owner) throws RuntimeException{
+        *//* 구급차는 응급 구조사와 함께합니다. drive라는 기능은 변하지 않으나 세부적인 사항이 추가되었습니다. *//*
+        System.out.println("ambulance drive with  paramedics");
+        super.drive(owner);
+    }*/
+
 }
