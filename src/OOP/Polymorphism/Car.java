@@ -29,5 +29,19 @@ public class Car extends Machine{
         System.out.println("car use AirConditioner with his " + bpm + "bpm Engine");
     }
 
+    public void polymorphismInMethod(Object object) {
+        // 매개변수를 Object Type으로 선언하면 모든 변수를 다 받을 수 있다.
+        // 다만 이 경우 원하는 타입을 다시 걸러내야 한다.
+    }
+
+    public void polymorphismInMethod2(Machine macine) {
+        // 매개변수를 Object Type으로 선언하면 모든 변수를 다 받을 수 있다.
+        // 다만 이 경우 원하는 타입을 다시 걸러내야 한다.
+    }
+
+    public void polymorphismInMethod3(Car car) {
+        // 매개변수를 Object Type으로 선언하면 모든 변수를 다 받을 수 있다.
+        // 다만 이 경우 원하는 타입을 다시 걸러내야 한다.
+    }
 
 }
