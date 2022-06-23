@@ -1,8 +1,5 @@
 package OOP.Polymorphism;
 
-import org.graalvm.compiler.serviceprovider.IsolateUtil;
-import sun.util.resources.ext.CalendarData_sr_Latn_RS;
-
 import java.util.HashMap;
 
 public class Main {
@@ -18,6 +15,7 @@ public class Main {
         /*형변환 오류 발생*//*
         Car polyCar = newMachine;
         */
+        // 강제 형변환 시에는 runtime 오류가 발생하기 때문에 더 심각하다.
         Car polyCar = (Car)newMachine;
 
 

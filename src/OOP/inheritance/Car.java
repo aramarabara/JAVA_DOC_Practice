@@ -4,7 +4,10 @@ import OOP.inheritance.CarComponent.CarSheet;
 import OOP.inheritance.CarComponent.Engine;
 import OOP.inheritance.CarComponent.Wheel;
 
-public class Car {
+/**
+ * 자동차를 묘사하는 "객채" 입니다.
+ */
+public class Car extends Machine{
 
     // 차는 "엔진 회전수"를 속성으로 가집니다.
     String bpm;

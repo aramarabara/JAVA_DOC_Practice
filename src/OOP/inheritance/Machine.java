@@ -1,5 +1,8 @@
 package OOP.inheritance;
 
+/*
+* 기계를 묘사하는 "객체"입니다.
+* */
 public class Machine extends Thing{
 
     //기계는 "동력원" 을 속성으로 가집니다.
