@@ -15,4 +15,6 @@ public class MeaningOfLife {
         // 누군가가 "사용할 수 있는" 기능이 있습니다.
         System.out.println("use");
     }
+
+
 }
