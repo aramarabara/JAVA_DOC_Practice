@@ -7,6 +7,7 @@ package OOP.Interface;
 * */
 public interface InterfaceTest {
 
+    public static final String name = "Interface";// 인터페이스에서는 상수만 선언할 수 있다.
     /*
     * 1. 내용을 가진 메서드는 선언이 불가하다.
     * 빨간줄을 통해서 Compile 에러 발생
