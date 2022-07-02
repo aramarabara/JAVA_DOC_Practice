@@ -1,8 +1,7 @@
-package ETC.Encoding;
+package JavaIO.Encoding;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
-import java.util.Base64.Decoder;
 
 public class Base64Practice {
 
