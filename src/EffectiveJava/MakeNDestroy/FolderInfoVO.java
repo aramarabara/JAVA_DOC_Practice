@@ -1,5 +1,8 @@
 package EffectiveJava.MakeNDestroy;
 
+import java.io.File;
+import java.util.List;
+
 public class FolderInfoVO {
 
     private String folderId;
@@ -8,6 +11,8 @@ public class FolderInfoVO {
     private String folderNames;
     private String folderName;
     private String parentFolderId;
+
+    private List<File> files;
 
     // JavaBean 패턴 활용을 위한 생성자
     public FolderInfoVO() {
@@ -24,8 +29,17 @@ public class FolderInfoVO {
         this.parentFolderId = parentFolderId;
     }
 
+    public FolderInfoVO(List<File> files) {
+        this.files = files;
+    }
+
+
     public static FolderInfoVO createVOFORSearchParentFolder(String folderId, String cmpId, String empId, String folderNames, String folderName, String parentFolderId) {
         return new FolderInfoVO(folderId, cmpId, empId, folderNames, folderName, parentFolderId);
+    }
+
+    public static FolderInfoVO searchAllFiles(List<File> files) {
+        return new FolderInfoVO(files);
     }
 
     public String getFolderId() {
@@ -63,6 +77,13 @@ public class FolderInfoVO {
     }
     public void setParentFolderId(String parentFolderId) {
         this.parentFolderId = parentFolderId;
+    }
+
+    public List<File> getFiles() {
+        return files;
+    }
+    public void setFiles(List<File> files) {
+        this.files = files;
     }
 
 }
