@@ -51,21 +51,37 @@ public class NO1_StaticFactoryMethod {
         // 엄청나게 비싼 비용을 가진 객체를 만들어보자. (크기가 10000인 fileList )
         File file = new File("C:\\Users\\user\\Desktop\\fileList.txt");
         List<File> fileList = new ArrayList<>();
-        // 임의로 10000개의 file을 가진 List가 있다고 가정하자.
-        for (int i = 0; i < 10000; i++) {
+        // 임의로 1000개의 file을 가진 List가 있다고 가정하자.
+        for (int i = 0; i < 1000; i++) {
             fileList.add(file);
         }
 
-        // 100번을 부를 때마다 매번 생성한다면 엄청난 비용을 치뤄야 한다.
+        // 100번을 부를 때마다 매번 생성한다면 엄청난 비용을(시간을) 치뤄야 한다.
         System.out.println("시작 : " + Instant.now());
         for(int i = 0; i < 100; i++) {
-            FolderInfoVO folderInfoVO = new FolderInfoVO(fileList);
-            for ( File file1 : folderInfoVO.getFiles() ) {
-                // 로그를 위해서 System.out.println()은 사용하지 않는다.
+            FolderInfoVO heavyVO = new FolderInfoVO(fileList);
+            for ( File file1 : heavyVO.getFiles() ) {
+                file1.exists();
+                // 파일이 있는지를 체크
             }
         }
+        System.out.println("끝 : " + Instant.now());
 
         System.out.println("시작 : " + Instant.now());
+        FolderInfoVO lightVO = FolderInfoVO.searchAllFiles(fileList);
+        for(int i = 0; i < 10; i++) {
+
+            for ( File file1 : lightVO.getFiles() ) {
+                file1.exists();
+                // 파일이 있는지를 체크
+            }
+        }
+        System.out.println("끝 : " + Instant.now());
+
+        // 4초와 0.3초 차이로 약 10배 이상의 시간차이를 나타낸다.
+        // 현재는 같은 Thread와 메서드 안이지만, 실제 서비스에서 잘못된 로직으로 0.3초가 4초가 된다면
+        // 서비스에 심각한 장애가 발생할 수 있다.
+
 
 
 
