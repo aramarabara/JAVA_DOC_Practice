@@ -56,11 +56,53 @@ public class NO_1_ExampleCode {
         // 굳이 저 Util들의 기능을 이해할 필요 없이, CollectionFramework가 제공하는 ArrayList등의 구현체만을
         // 사용할 줄 알면 된다.
 
+
         // 입력 매개변수에 따라 각기 다른 클래스의 객체를 반환할 수 있다.
+
+        EnumSet<EnumExample> enumSet = EnumSet.of(EnumExample.USER, EnumExample.USER2); // 이런식으로 사용할 수 있다.
+        // ETC..
+
+        EnumSet<EnumExample> jumboEnumSet = EnumSet.of(EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,
+                EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER,EnumExample.USER
+                );
         // 예시, Enum, 원소가 64개 이상이면 JumboEnumSet 제공한다.
         // 즉 버전이 바뀐다 해도 EnumSet을 상속하는 객체를 던져주기만 하면 된다.
-        // ( 어차피 EnumSet의 기능을 할 것이므로 )
-        //EnumSet<int>.of(1,2,3)
+        //        public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
+        //            Enum<?>[] universe = getUniverse(elementType);
+        //            if (universe == null)
+        //                throw new ClassCastException(elementType + " not an enum");
+        //
+        //            if (universe.length <= 64)
+        //                return new RegularEnumSet<>(elementType, universe);
+        //            else
+        //                return new JumboEnumSet<>(elementType, universe);
+        //
+        //            // 이렇게 RegularEnumSet과 JumboEnumSet을 각각 다르게 던져준다.
+        //        }
+
+        // 만약 원소가 33개일때 특수한 작용을 하는 EnumSet33 이 추가되더라도, EnumSet만을 상속받으면 되므로, 기존코드에 영향이 없다.
+        // 이런 경우에는 평소처럼 EnumSet을 상속받아서 구현하면 된다.
+        //        public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
+        //            Enum<?>[] universe = getUniverse(elementType);
+        //            if (universe == null)
+        //                throw new ClassCastException(elementType + " not an enum");
+        //
+        //            if (universe.length <= 64)
+        //                return new RegularEnumSet<>(elementType, universe);
+        //           else if (universe.length <= 33)
+        //              return new EnumSet33<>(elementType, universe);
+        //            else
+        //                return new JumboEnumSet<>(elementType, universe);
+        //
+        //        }
+
+
     }
 
 }
