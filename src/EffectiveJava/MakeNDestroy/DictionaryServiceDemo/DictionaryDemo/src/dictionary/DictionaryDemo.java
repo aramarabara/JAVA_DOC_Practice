@@ -29,9 +29,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package dictionary;
+package EffectiveJava.MakeNDestroy.DictionaryServiceDemo.DictionaryDemo.src.dictionary;
 
-import dictionary.DictionaryService;
+import EffectiveJava.MakeNDestroy.DictionaryServiceDemo.DictionaryServiceProvider.src.dictionary.DictionaryService;
 
 public class DictionaryDemo {
 

@@ -1,4 +1,4 @@
-/*
+package EffectiveJava.MakeNDestroy.DictionaryServiceDemo.ExtendedDictionary.src.dictionary;/*
  * Copyright (c) 2013, Oracle and/or its affiliates. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,9 +29,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package dictionary;
 
-import dictionary.spi.Dictionary;
+import EffectiveJava.MakeNDestroy.DictionaryServiceDemo.DictionaryServiceProvider.src.dictionary.spi.Dictionary;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
