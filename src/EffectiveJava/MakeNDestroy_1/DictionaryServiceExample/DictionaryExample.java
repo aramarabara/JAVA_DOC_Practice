@@ -1,4 +1,4 @@
-package EffectiveJava.MakeNDestroy.DictionaryServiceExample;
+package EffectiveJava.MakeNDestroy_1.DictionaryServiceExample;
 
 public interface DictionaryExample {
 

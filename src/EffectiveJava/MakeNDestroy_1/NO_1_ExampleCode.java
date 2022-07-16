@@ -1,6 +1,4 @@
-package EffectiveJava.MakeNDestroy;
-
-import jdk.internal.reflect.Reflection;
+package EffectiveJava.MakeNDestroy_1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -109,56 +107,30 @@ public class NO_1_ExampleCode {
 
 
         // 작성하는 시점에서 반환할 객체의 클래스가 존재하지 않아도 된다.
-        // JDBC DriverManger의 경우 생성자를 private으로 막아놓았다.
-        //DriverManager manager = new DriverManager();
+        // DriverManager는 Database 연결에 핵심적인 구현을 맡는 Service 로직을 가지고 있다.
+        // 그러나, 일반 생성자가 private으로 막혀 있다.
 
-        // JDBC DriverManager는 Connection 객체를 field로 가지고있지 않지만,
-        // 안의 메서드로 Connection을 받아 반환하는 것이 가능하다.
-        // 만약 생성자를 활용했다면, DriverManger와 Connection이 상속관계로 얽혀있어야 가능했을 것이다.
+        //** DriverManager manager = new DriverManager();
 
-        // getConnection이라는 static Factory Method가 reflection을 활용하여 Caller의 클래스를 알아내어서
-        // 반환한다.
+        // 이 DriverManger를 활용하기 위해서는 .getConnection() 을 통해서 정보를 전달해야 한다.
+        // 여기서 반환되는 Connection 객체를 ojdbc8의 클래스를 통해 자세히 살펴보자.
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
 
-        // Service Provider Framework? ( SPF? SPI? )
-        // 인터페이스 사용과 밀접한 연관이 있는 듯 한데..
-        // 그럼 Abstract Class처럼 인터페이스를 강제하지 않고서도 무조건 생성자로 생성하게 만드는건가?
-        // 즉, interface를 강제하지는 않지만 결국 instance화 하려면 인터페이스를 넣어주어야 하는..?
-        // 그건 아니다. interface가 초기값을 가지지 못하는 것과 달리
-        // Static Factory Method는 기본적으로 반환되는 Instance를  가질 수 있다.
+        //1.  ojdbc8 driver는 SP(SPI의 구현체)로써 META-INF에 진입점이 되는 경로가 작성되어 있다.
+        // ** 직접 확인필요
 
-        // 결국 constructor 의 선언부에 강제되는 return type을 피해서 더 자유롭게 구성할 수 있다는 뜻
+        //2. JDBC는 Driver( 드라이버 ) 를 SPI ( Service Provider Interface )로써 제공하며, OracleDriver는 이를 impelement하는 클래스이다.
+        // 즉, 확장된 Driver이다.
 
-        // 1. interface는 구현체가 있어야 한다..
-        // 그리고 Override를 강제한다. ( 기본값을 가지기 어려움 )
-        // implements로 관계를 만들어서 사용해야 한다.
+        //3. OracleDriver는 Driver 클래스에서 Override한 getConnection을 활용하여 Connection Interface의 구현체를 만든다.
+        // 이때, OracleDriver가 반환하는 Connection 클래스는 기존의 Conneciton클래스와는 달리 엄청나게 많은 Interface와 구현체들을 가지고 있다.
+        // 즉, 시스템이 가지고있지 않은 인터페이스들을 가지고 있다.
 
-        // 2. Static Factory Method는 자기 자신을 통해 인스턴스를 구현한다.
-        // FactoryMethod이기 때문에 기본값을 가질 수 있다.
-        // 그리고, Reflection을 활용한다면 사용자가 새로 만든 전혀 모르는 타입도 활용할 수 있다.
-        // ( 생성자는 반환값이 지정되어 있어 불가능.. )
-
-        /*public static Connection getConnection(String url,
-                String user, String password) throws SQLException {
-            java.util.Properties info = new java.util.Properties();
-
-            if (user != null) {
-                info.put("user", user);
-            }
-            if (password != null) {
-                info.put("password", password);
-            }
-
-            // 이 부분에서 reflection을 활용하여 클래스 정보를 추출한다.
-            return (getConnection(url, info, Reflection.getCallerClass()));
-
-            // 보통 DriverClass는 드라이버마다 다 다른데, reflection을 통해서 현재 삽입된 클래스와
-            // 드라이버 간의 관계를 조명할 수 있다.
-            // 또한 이런 타입체크를 하면서 동시에 새로운 타입으로 객체를 되돌려 줄 수 있다..
-
-        }*/
-
-
+        // 그러나, 당장에 System이 이 수많은 subInterface를 가지고 있지 않더라도, ClassLoader가 OracleDriver를 동적으로 컴파일하면 같이 생겨나게 되며,
+        // Static Factory Method를 활용하면 이렇게 Connection이라는 전혀 다른 타입, 또 사용자가 커스터마이징하여 구현한 Connection타입을 반환할 수 있다.
+        // 이는 존재하지 않는 클래스들을 외부파일을 통해서 반환할 수 있다는 엄청난 유연성을 제공한다..
+        // ( 물론, Constructor로도 ClassLoader를 사용할 수 없는 것은 아니지만, 반환 타입이 제한된다는 치명적인 문제점이 있어
+        // 가독성과 메서드의 직관성이 떨어지게 된다. )
 
     }
 

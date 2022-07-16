@@ -1,6 +1,4 @@
-package EffectiveJava.MakeNDestroy;
-
-import java.util.List;
+package EffectiveJava.MakeNDestroy_1;
 
 public enum EnumExample {
 

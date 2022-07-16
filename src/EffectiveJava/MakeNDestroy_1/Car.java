@@ -1,4 +1,4 @@
-package EffectiveJava.MakeNDestroy;
+package EffectiveJava.MakeNDestroy_1;
 
 public class Car {
 

@@ -1,4 +1,4 @@
-package EffectiveJava.MakeNDestroy;
+package EffectiveJava.MakeNDestroy_1;
 
 import java.io.File;
 import java.time.Instant;
