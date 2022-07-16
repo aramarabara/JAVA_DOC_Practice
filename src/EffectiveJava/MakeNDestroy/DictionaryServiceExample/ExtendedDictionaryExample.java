@@ -1,11 +1,10 @@
 package EffectiveJava.MakeNDestroy.DictionaryServiceExample;
 
-import EffectiveJava.MakeNDestroy.DictionaryServiceDemo.DictionaryServiceProvider.src.dictionary.spi.Dictionary;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class ExtendedDictionaryExample implements Dictionary {
+public class ExtendedDictionaryExample implements DictionaryExample {
 
         private SortedMap<String, String> map;
 
@@ -25,9 +24,9 @@ public class ExtendedDictionaryExample implements Dictionary {
                 "Transfer");
     }
 
+
     @Override
     public String getDefinition(String word) {
         return map.get(word);
     }
-
 }

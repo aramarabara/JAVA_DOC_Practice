@@ -1,10 +1,8 @@
 package EffectiveJava.MakeNDestroy.DictionaryServiceExample;
 
-import EffectiveJava.MakeNDestroy.DictionaryServiceDemo.DictionaryServiceProvider.src.dictionary.spi.Dictionary;
-
 import java.util.SortedMap;
 import java.util.TreeMap;
-public class GeneralDictionaryExample implements Dictionary {
+public class GeneralDictionaryExample implements DictionaryExample {
 
         private SortedMap<String, String> map;
 
@@ -23,7 +21,5 @@ public class GeneralDictionaryExample implements Dictionary {
         public String getDefinition(String word) {
             return map.get(word);
         }
-
-
 
 }
