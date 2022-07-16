@@ -1,7 +1,5 @@
 package EffectiveJava.MakeNDestroy.DictionaryServiceExample;
 
-import EffectiveJava.MakeNDestroy.DictionaryServiceDemo.DictionaryServiceProvider.src.dictionary.spi.Dictionary;
-
 import java.util.Iterator;
 import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
