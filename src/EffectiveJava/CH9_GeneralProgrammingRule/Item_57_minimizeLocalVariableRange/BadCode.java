@@ -1,4 +1,4 @@
-package EffectiveJava.UseLocalVariable;
+package EffectiveJava.CH9_GeneralProgrammingRule.Item_57_minimizeLocalVariableRange;
 
 import java.io.File;
 import java.net.MalformedURLException;

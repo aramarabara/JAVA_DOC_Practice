@@ -1,4 +1,4 @@
-package EffectiveJava.MakeNDestroy_1.DictionaryServiceExample;
+package EffectiveJava.CH1_ObjectMakeNDestroy.Item_1_useStaticFactoryMethod.DictionaryServiceExample;
 
 import java.util.Iterator;
 import java.util.ServiceConfigurationError;

@@ -1,4 +1,4 @@
-package EffectiveJava.MakeNDestroy_1;
+package EffectiveJava.CH1_ObjectMakeNDestroy.Item_1_useStaticFactoryMethod;
 
 public enum EnumExample {
 

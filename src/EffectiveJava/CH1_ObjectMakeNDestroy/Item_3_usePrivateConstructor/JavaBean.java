@@ -1,4 +1,4 @@
-package EffectiveJava;
+package EffectiveJava.CH1_ObjectMakeNDestroy.Item_3_usePrivateConstructor;
 
 public class JavaBean {
 

@@ -1,6 +1,6 @@
-package EffectiveJava.UseLocalVariable;
+package EffectiveJava.CH9_GeneralProgrammingRule.Item_57_minimizeLocalVariableRange;
 
-public class LocalVariable {
+public class A_ExampleCode {
 
     public static void main(String[] args) {
 
