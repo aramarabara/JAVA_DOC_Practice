@@ -67,4 +67,48 @@ public class A_ExampleCode {
 
     }
 
+
+    public static class NutritionFactsJavaBeanUseFreezing {
+
+        private int servingSize = 0; // (제공량)
+        private int servings = 0; // (1회 제공랑)
+        private int calories = 0; // (칼로리)
+        private int fat = 0; // (지방)
+        private int sodium = 0; // (나트를 리스트에 추가하는 메서드
+        private int carbohydrate = 0; // (탄수화물)
+
+        public int getServingSize() {return servingSize;}
+        public int getServings() {return servings;}
+        public int getCalories() {return calories;}
+        public int getFat() {return fat;}
+        public int getSodium() {return sodium;}
+        public int getCarbohydrate() {return carbohydrate;}
+        public void setServingSize(int servingSize) {this.servingSize = servingSize;}
+        public void setServings(int servings) {this.servings = servings;}
+        public void setCalories(int calories) {this.calories = calories;}
+        public void setFat(int fat) {this.fat = fat;}
+        public void setSodium(int sodium) {this.sodium = sodium;}
+        public void setCarbohydrate(int carbohydrate) {this.carbohydrate = carbohydrate;}
+
+        public synchronized NutritionFactsJavaBeanUseFreezing  freeze() {
+            NutritionFactsJavaBeanUseFreezing frozen = new NutritionFactsJavaBeanUseFreezing();
+            frozen.servingSize = this.servingSize;
+            frozen.servings = this.servings;
+            frozen.calories = this.calories;
+            frozen.fat = this.fat;
+            frozen.sodium = this.sodium;
+            frozen.carbohydrate = this.carbohydrate;
+            return frozen;
+        }
+
+        public synchronized boolean isFrozen() {
+            NutritionFactsJavaBeanUseFreezing frozen = new NutritionFactsJavaBeanUseFreezing();
+            if(frozen == null) {
+                return false;
+            }
+            return true;
+        }
+
+
+    }
 }

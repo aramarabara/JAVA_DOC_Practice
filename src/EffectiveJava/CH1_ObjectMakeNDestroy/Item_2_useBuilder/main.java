@@ -8,7 +8,7 @@ public class main {
         // 만일 매개변수가 10~20개를 넘는다면 엄청나게 많은 값들을 일일히 넣고, 가독성도 엄청나게 떨어진다.
         A_ExampleCode.NutritionFacts nutritionFacts = new A_ExampleCode.NutritionFacts(100, 0, 0, 0, 10, 10);
 
-        // 가독성이 더 좋아지고,
+        // 가독성이 더 좋아지고 모든 매개변수의 경우의 수에 관한 값을 넣어주지 않아도 되어 더 유연해졌다.
         A_ExampleCode.NutritionFactsJavaBean nutritionFactsJavaBean = new A_ExampleCode.NutritionFactsJavaBean();
         nutritionFactsJavaBean.setServingSize(100);
         nutritionFactsJavaBean.setServings(0);
@@ -16,8 +16,6 @@ public class main {
         nutritionFactsJavaBean.setFat(0);
         nutritionFactsJavaBean.setSodium(10);
         nutritionFactsJavaBean.setCarbohydrate(10);
-
-
 
 
 
