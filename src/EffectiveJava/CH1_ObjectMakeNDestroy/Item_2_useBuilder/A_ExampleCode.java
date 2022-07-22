@@ -109,6 +109,33 @@ public class A_ExampleCode {
             return true;
         }
 
+    }
+
+    public class NutritionFactsJavaBeanUseBuilderPattern {
+
+        private int servingSize = 0; // (제공량)
+        private int servings = 0; // (1회 제공랑)
+        private int calories = 0; // (칼로리)
+        private int fat = 0; // (지방)
+        private int sodium = 0; // (나트를 리스트에 추가하는 메서드
+        private int carbohydrate = 0; // (탄수화물)
+
+        public NutritionFactsJavaBeanUseBuilderPattern build() {
+            return new NutritionFactsJavaBeanUseBuilderPattern( this.servingSize, this.servings, this.calories, this.fat, this.sodium, this.carbohydrate);
+        }
+
+        public NutritionFactsJavaBeanUseBuilderPattern(int servingSize, int servings, int calories, int fat, int sodium, int carbohydrate) {
+            this.servingSize = servingSize;
+            this.servings = servings;
+            this.calories = calories;
+            this.fat = fat;
+            this.sodium = sodium;
+            this.carbohydrate = carbohydrate;
+        }
+
+
 
     }
+
+
 }
