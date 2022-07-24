@@ -1,6 +1,6 @@
-package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder;
+package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.BuilderExample;
 
-public class NutritionFactsUseBuilderPattern {
+public class NutritionFactsUseBuilderPattern_Example {
 
     private final int servingSize; // (제공량)
     private final int servings; // (1회 제공랑)
@@ -43,13 +43,13 @@ public class NutritionFactsUseBuilderPattern {
             carbohydrate = carbohydrate;
             return this;
         }
-        public NutritionFactsUseBuilderPattern build() {
-            return new NutritionFactsUseBuilderPattern(this);
+        public NutritionFactsUseBuilderPattern_Example build() {
+            return new NutritionFactsUseBuilderPattern_Example(this);
         }
 
     }
 
-    private NutritionFactsUseBuilderPattern(Builder builder) {
+    private NutritionFactsUseBuilderPattern_Example(Builder builder) {
         this.servingSize = builder.servingSize;
         this.servings = builder.servings;
         this.calories = builder.calories;
