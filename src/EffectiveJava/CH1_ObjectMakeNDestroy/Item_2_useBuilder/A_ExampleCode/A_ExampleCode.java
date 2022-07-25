@@ -1,4 +1,4 @@
-package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder;
+package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.A_ExampleCode;
 
 public class A_ExampleCode {
 

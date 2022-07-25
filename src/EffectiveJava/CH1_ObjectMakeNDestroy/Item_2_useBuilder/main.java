@@ -1,6 +1,10 @@
 package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder;
 
+import EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.A_ExampleCode.NutritionFacts;
+import EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.A_ExampleCode.NutritionFacts_JavaBeans;
+import EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.A_ExampleCode.NutritionFacts_Telescoping;
 import EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.BuilderExample.NutritionFactsUseBuilderPattern_Example;
+import EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.A_ExampleCode.A_ExampleCode;
 
 import javax.swing.*;
 
@@ -9,23 +13,36 @@ public class main {
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
 
         // 1. 생성자로 호출하는 방법
+        // 장점 : 생성자는 멀티쓰레드 환경에서 일관성(Consistancy)를 보장한다. ( 완전히 인스턴스화 되기 이전 접근불가능 )
+        // 단점 : 필요한 매개변수 값 외의 다른 값들을 초기화 해 주어야 한다.
+        NutritionFacts facts = new NutritionFacts(240, 0, 0, 0);
 
-        // Nutrition fact를 이렇게 호출하려면 필요없는 값은 0을 넣어주어야 한다.
-        // 만일 매개변수가 10~20개를 넘는다면 엄청나게 많은 값들을 일일히 넣고, 가독성도 엄청나게 떨어진다.
-        A_ExampleCode.NutritionFacts nutritionFacts = new A_ExampleCode.NutritionFacts(100, 0, 0, 0, 10, 10);
+        //----------------------------------------------------------------------------------------------------------------------
+
+        // 2. 점층적 생성자 패턴 (Telescoping Constructor Pattern)
+        // 장점 : 미리 값을 초기화함으로써 사용자가 원하는 매개변수 값만을 넘겨주도록 한다.
+        // ** 밑의 예시에서 다른 값들은 0으로 초기화 되어있다.
+        NutritionFacts_Telescoping facts_Telescoping = new NutritionFacts_Telescoping(240);
+
+        // 단점 : 같은 타입이 연속될 경우, 값이 뒤바뀌어도 구분하기 매우 어렵다.
+        // ** ServingSize 뜻 : 제공량
+        // ** Servings 뜻 : 1회 제공랑, 제공량을 넘을 수 없지만 실수로 바꿔 넣을경우 엉뚱한 코드가 된다. ( 개념적으로 맞지 않는 코드. 에러가능성이 매우 높다 )
+        A_ExampleCode.NutritionFacts facts_Telescoping_2   = new A_ExampleCode.NutritionFacts(10, 100);
+
+        // ----------------------------------------------------------------------------------------------------------------------
+
+        // 3. JavaBeans Pattern으로 호출하는 방법
+
+        // 장점 : 가독성이 더 좋아지고 모든 매개변수의 경우의 수에 관한 값을 넣어주지 않아도 되어 더 유연해졌다.
+        NutritionFacts_JavaBeans facts_JavaBeans = new NutritionFacts_JavaBeans();
+        //facts_JavaBeans.setFat(0), set하지 않아도 0으로 초기화되도록 코드가 구현되어 있다.
+        facts_JavaBeans.setServingSize(240);
+        facts_JavaBeans.setServings(8);
+        facts_JavaBeans.setCalories(100);
+
+        // 단점 : 객체가 생성된 이후 값이 들어가므로, 멀티쓰레드 환경에서는 객체의 불변성 (Conssistancy)을 보장하지 못한다.
 
 
-        // 2. JavaBeans Pattern으로 호출하는 방법
-
-        // 가독성이 더 좋아지고 모든 매개변수의 경우의 수에 관한 값을 넣어주지 않아도 되어 더 유연해졌다.
-        // 그러나, 객체가 생성된 이후 값이 들어가므로, 멀티쓰레드 환경에서는 객체의 불변성 (Conssistancy)을 보장하지 못한다.
-        A_ExampleCode.NutritionFactsJavaBean nutritionFactsJavaBean = new A_ExampleCode.NutritionFactsJavaBean();
-        nutritionFactsJavaBean.setServingSize(100);
-        nutritionFactsJavaBean.setServings(0);
-        nutritionFactsJavaBean.setCalories(0);
-        nutritionFactsJavaBean.setFat(0);
-        nutritionFactsJavaBean.setSodium(10);
-        nutritionFactsJavaBean.setCarbohydrate(10);
 
 
         // 3. JavaBeans Pattern에 Freeze 기능을 추가하는 방법
@@ -62,5 +79,7 @@ public class main {
 
 
     }
+
+
 
 }
