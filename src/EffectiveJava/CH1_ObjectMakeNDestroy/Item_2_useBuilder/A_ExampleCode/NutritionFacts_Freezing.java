@@ -7,11 +7,7 @@ public class NutritionFacts_Freezing {
     private int calories;
     private int fat;
 
-    public NutritionFacts_Freezing(int servingSize, int servings, int calories, int fat) {
-        this.servingSize = servingSize;
-        this.servings = servings;
-        this.calories = calories;
-        this.fat = fat;
+    public NutritionFacts_Freezing() {
     }
 
     public int getServingSize() {
@@ -46,14 +42,24 @@ public class NutritionFacts_Freezing {
         this.fat = fat;
     }
 
-    public void freeze() {
 
+    public synchronized NutritionFacts_Freezing freeze(int servingSize, int servings, int calories, int fat) {
+        NutritionFacts_Freezing frozen = new NutritionFacts_Freezing();
+        frozen.servingSize = servingSize;
+        frozen.servings = servings;
+        frozen.calories = calories;
+        frozen.fat = fat;
+        return frozen;
     }
 
-    public boolean isFreezed(NutritionFacts_Freezing nutritionFacts) {
-        if(nutritionFacts.getServingSize() == null || nutritionFacts.getServings() == null || nutritionFacts.getCalories() == null || nutritionFacts.getFat() == null) {
+    public synchronized boolean isFrozen(NutritionFacts_Freezing frozen) {
+        if(frozen.servingSize == this.servingSize &&
+                frozen.servings == this.servings &&
+                frozen.calories == this.calories &&
+                frozen.fat == this.fat) {
             return true;
         }
+        return false;
     }
 
 

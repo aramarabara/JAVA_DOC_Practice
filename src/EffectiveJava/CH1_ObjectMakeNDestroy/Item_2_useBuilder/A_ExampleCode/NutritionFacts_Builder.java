@@ -17,8 +17,6 @@ public class NutritionFacts_Builder {
         public Builder(int servingSize, int servings, int calories, int fat) {
             this.servingSize = servingSize;
             this.servings = servings;
-            this.calories = calories;
-            this.fat = fat;
         }
 
         public Builder calories(int calories) {
