@@ -1,4 +1,4 @@
-package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.PizzaExample;
+package EffectiveJava.CH1_ObjectMakeNDestroy.Item_2_useBuilder.A_ExampleCode.PizzaExample;
 
 import java.util.Objects;
 

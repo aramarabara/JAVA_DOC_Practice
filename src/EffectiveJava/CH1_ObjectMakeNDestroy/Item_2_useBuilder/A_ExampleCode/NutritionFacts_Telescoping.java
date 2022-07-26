@@ -26,4 +26,20 @@ public class NutritionFacts_Telescoping {
         this(servingSize, 0, 0, 0);
     }
 
+    // Getter for use field
+    public int getServingSize() {
+        return servingSize;
+    }
+
+    public int getServings() {
+        return servings;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public int getFat() {
+        return fat;
+    }
 }
