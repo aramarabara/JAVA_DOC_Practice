@@ -65,18 +65,15 @@ public class main {
 
         // 단점 : 복잡하며, 주석이 없다면 freeze Method가 있다는 것을 이해할 수 없고 freeze method 없이 setter만으로 객체를 초기화하는 것을 막지못한다.
 
-
         // 4. Builder Pattern으로 인스턴스화 하는 방법
         // 장점 : 멀티쓰레드 환경에서 객체 불변성을 보장한다. 필수 값들이 모두 Setting된 후 객체를 Build 하므로 값이 뒤바뀔 염려가 없다.
         // ** fluent API, 혹은 메서드 연쇄 (method Chaining) 이라고 부른다.
+        //Build() 메서드를 호출한 다음 활용할 수 있어 Thread-Safe하다.
         NutritionFacts_Builder useBuilderObject = new NutritionFacts_Builder.Builder(100, 100, 199, 100).build();
-        //Build 가 완성된 다음 객체를 활용할 수 있게 되기 때문에, Thread Safe 하다.
 
-        // ** 그러나 의문, 원래도 보통 JavaBeans Pattern은 new 예약어를 통해서 새 객체를 만들기 때문에, 값 뒤바뀜 현상이 일어나기 힘든데
-        // 어떤 경우에 Thread-safe가 풀리는가? 왜 JavaBeans Pattern은 thread-safe하지 않은가?
-
-
-
+        // 단점 : Builder Pattern은 객체의 생성을 위한 생성자를 제공하지 않는다.
+        // 보통 생성자는 Private으로 선언하고, Builder Pattern을 사용하여 객체를 생성하기 때문에 freeze와 마찬가지로 사용자가 Compile 오류 이전에는
+        // builder를 사용해야 하는지 모를 수 있다.
 
     }
 
