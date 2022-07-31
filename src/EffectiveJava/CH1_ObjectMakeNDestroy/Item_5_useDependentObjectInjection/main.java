@@ -1,8 +1,7 @@
 package EffectiveJava.CH1_ObjectMakeNDestroy.Item_5_useDependentObjectInjection;
 
-import EffectiveJava.CH1_ObjectMakeNDestroy.Item_5_useDependentObjectInjection.A_ExampleCode.WordChecker;
-import EffectiveJava.CH1_ObjectMakeNDestroy.Item_5_useDependentObjectInjection.A_ExampleCode.WordCheckerDI;
-import EffectiveJava.CH1_ObjectMakeNDestroy.Item_5_useDependentObjectInjection.A_ExampleCode.WordCheckerSingleTon;
+import EffectiveJava.CH1_ObjectMakeNDestroy.Item_5_useDependentObjectInjection.A_ExampleCode.*;
+import EffectiveJava.ExampleCode.CmmFileBean;
 import EffectiveJava.ExampleCode.Dictionary;
 
 import java.util.List;
@@ -23,7 +22,14 @@ public class main {
         wordCheckerDI.check();
 
         // 4. DI(Dependent Injection)과 Factory Method를 합친 사용법, 다른 타입을 반환할 수도 있다.
+        WCFactory wCFactory = new WCFactory(new Dictionary(List.of("bad", "good")), new Dictionary(List.of("bad", "good")));
+        WordCheckerDIFactory wordCheckerDIFactory = new WordCheckerDIFactory(wCFactory);
+        wordCheckerDIFactory.createWordCheckerDI().check();
 
+        // Bad Example, static final 혹은 singleTon을 통해서 확장성이 떨어지는 코드를 구현한다.
+        CmmFileBean cmmFileBean = new CmmFileBean("K");
+
+        // Good Example, 객체를 주입받아 확장성을 고려한 코드를 구현한다.
 
     }
 

@@ -6,8 +6,13 @@ public class WordCheckerDIFactory {
 
     private final WCFactory<? extends Dictionary> factory;
 
-    public WordCheckerDIFactory(Dictionary dictionary, WCFactory<? extends Dictionary> factory) {
+    public WordCheckerDIFactory(WCFactory<? extends Dictionary> factory) {
         this.factory = factory;
     }
+
+    public WordCheckerDI createWordCheckerDI() {
+        return new WordCheckerDI(factory.createDictionary());
+    }
+
 
 }
