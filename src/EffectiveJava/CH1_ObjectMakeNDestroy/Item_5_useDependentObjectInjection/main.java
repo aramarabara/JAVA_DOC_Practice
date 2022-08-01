@@ -30,7 +30,6 @@ public class main {
         CmmFileBean cmmFileBean = new CmmFileBean("K");
 
         // Good Example, 객체를 주입받아 확장성을 고려한 코드를 구현한다.
-
     }
 
 }
