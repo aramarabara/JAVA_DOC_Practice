@@ -2,18 +2,39 @@ package EffectiveJava.CH1_ObjectMakeNDestroy.Item_6_7_objectCreateNDestroy;
 
 public class A_ExampleCode {
 
-    // 불필요한 객체 생성을 피하라
+    public static void main(String[] args) {
 
-    // 객체를 이미 만들어서 String 객체에 넘겨주고 있다.
-    String s = new String("bikini");
+        // 불필요한 객체 생성을 피하라
 
-    // 개선된 버전
-    String s2 = "bikini";
-    // 하나의 인스턴스를 사용한다, 또한 이 객체를 사용하는 모든 코드가 같은 객체를 사용함이 보장된다.
+        // 객체를 이미 만들어서 String 객체에 넘겨주고 있다.
+        String s = new String("bikini");
 
-    // 정적 팩토리 메서드는 불필요한 객체 생성을 예방한다
-    Boolean bool = Boolean.valueOf("true");
+        // 개선된 버전
+        String s2 = "bikini";
+        // 하나의 인스턴스를 사용한다, 또한 이 객체를 사용하는 모든 코드가 같은 객체를 사용함이 보장된다.
 
+        // 정적 팩토리 메서드는 불필요한 객체 생성을 예방한다
+        Boolean bool = Boolean.valueOf("true");
+
+        // 생성 비용이 비싼 객체를 재사용할 수 있다.
+        // ** 정규표현식 Pattern 인스턴스는 유한 상태 머신 (finite state machine) 을 만들기 때문에 인스턴스 생성 비용이 높다
+        // ** 예를 들어, (\d)+  (Number)을 찾는 정규표현식의 경우 있다면 값을 반환, 없다면 반환하지 않는 형태로
+        // 여러 상태를 가지기 때문에 FSM으로 전환될 수 있다.
+        // 이렇게 정규표현식 인스턴스는 각 상태에 대해서 유한한 조건의 경우의 수를 모두 가지고 있어야 하기 때문에 생성비용이 매우 높다
+        String string = "12;44";
+        System.out.println();
+        for (int i = 0; i < 1000; i++) {
+            boolean isRoman = string.matches("^(?=. )M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3}) (I[XV] |V?I{0,3})$");
+            System.out.println(isRoman);
+        }
+
+
+        // static 객체로 만들어진 특정 상황에 대한 정규표현식 객체를 불러 재사용한다
+
+
+
+
+    }
 
 
 }
