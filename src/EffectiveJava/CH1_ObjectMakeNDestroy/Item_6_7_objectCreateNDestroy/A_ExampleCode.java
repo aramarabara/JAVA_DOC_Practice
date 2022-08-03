@@ -1,5 +1,9 @@
 package EffectiveJava.CH1_ObjectMakeNDestroy.Item_6_7_objectCreateNDestroy;
 
+import EffectiveJava.ExampleCode.RomanNumbers;
+
+import java.time.Instant;
+
 public class A_ExampleCode {
 
     public static void main(String[] args) {
@@ -22,16 +26,26 @@ public class A_ExampleCode {
         // 여러 상태를 가지기 때문에 FSM으로 전환될 수 있다.
         // 이렇게 정규표현식 인스턴스는 각 상태에 대해서 유한한 조건의 경우의 수를 모두 가지고 있어야 하기 때문에 생성비용이 매우 높다
         String string = "12;44";
-        System.out.println();
+        long curtime = Instant.now().toEpochMilli();
+        System.out.println(Instant.now());
         for (int i = 0; i < 1000; i++) {
             boolean isRoman = string.matches("^(?=. )M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3}) (I[XV] |V?I{0,3})$");
-            System.out.println(isRoman);
         }
+        long curtime2 = Instant.now().toEpochMilli();
+
+        System.out.println("1. 인스턴스를 100번 만들 때 걸리는 시간 : " + (curtime2 - curtime));
 
 
         // static 객체로 만들어진 특정 상황에 대한 정규표현식 객체를 불러 재사용한다
+        long curtime3 = Instant.now().toEpochMilli();
+        System.out.println(Instant.now());
+        for (int i = 0; i < 1000; i++) {
+            RomanNumbers.isRomanNumber(string);
+        }
+        long curtime4 = Instant.now().toEpochMilli();
 
-
+        System.out.println("2. 인스턴스를 100번 재사용 할 때 걸리는 시간 : " + (curtime4 - curtime3));
+        System.out.println("\r\n결과 : 약 6배 차이가 난다");
 
 
     }
