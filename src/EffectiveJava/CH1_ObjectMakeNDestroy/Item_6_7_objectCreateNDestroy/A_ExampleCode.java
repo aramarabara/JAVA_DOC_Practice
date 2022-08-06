@@ -47,6 +47,25 @@ public class A_ExampleCode {
         System.out.println("2. 인스턴스를 100번 재사용 할 때 걸리는 시간 : " + (curtime4 - curtime3));
         System.out.println("\r\n결과 : 약 6배 차이가 난다");
 
+        // Boxing Type을 잘못 사용하면 새로 객체가 계속 생성될 수 있으므로 주의해야 한다.
+        // 1. Boxing 사용
+        long curtimeWithBoxing = Instant.now().toEpochMilli();
+        for (long i = 0; i < 1000000; i++) {
+            Long res =+ i;
+        }
+        long curtimeWithBoxing2 = Instant.now().toEpochMilli();
+        System.out.println();
+        System.out.println("3. Boxing 사용 걸린 시간 : " + (curtimeWithBoxing2 - curtimeWithBoxing));
+        // 2. Boxing 사용 안함
+
+        long curtimeWithoutBoxing = Instant.now().toEpochMilli();
+        for (long i = 0; i < 1000000; i++) {
+             long res =+ i;
+        }
+        long curtimeWithoutBoxing2 = Instant.now().toEpochMilli();
+        System.out.println("4. Boxing 사용 안함 걸린 시간 : " + (curtimeWithoutBoxing - curtimeWithoutBoxing));
+
+        System.out.println("\r\n결과 : 측정할 수 없을만큼 엄청나게 차이난다");
 
     }
 
