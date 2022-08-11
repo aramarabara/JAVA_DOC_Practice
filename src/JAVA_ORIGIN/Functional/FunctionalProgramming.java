@@ -2,6 +2,7 @@ package JAVA_ORIGIN.Functional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -31,6 +32,14 @@ public class FunctionalProgramming {
 
         Stream<String> stream = map.keySet().stream();
         stream.filter(s -> s.length() > 0).forEach(System.out::println);
+
+        // 2) function 을 사용하여 간단한 람다식을 구현한다.
+
+        Function<Integer, Integer> func1 = x -> x + 1;
+        Integer result = func1.apply(10); // 특정 값을 람다식에 할당한다.
+        System.out.println(result);
+
+
 
     }
 }
