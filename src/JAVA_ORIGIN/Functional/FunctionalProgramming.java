@@ -39,6 +39,27 @@ public class FunctionalProgramming {
         Integer result = func1.apply(10); // 특정 값을 람다식에 할당한다.
         System.out.println(result);
 
+        Function<Integer, Integer> func2 = x -> {
+            System.out.println("func2");
+            return x + 1;
+        };
+
+        result = func2.apply(10);
+
+        System.out.println(result);
+
+        // Predicate<T> 인터페이스를 구현한다.
+
+        Predicate<String> isStringEmpty2 = String::isEmpty;
+
+        Predicate<String> isStringBlank2 = String::isBlank;
+
+        isStringEmpty2.and(isStringBlank2).test(""); // true
+
+        isStringEmpty2.negate().test(""); // false
+
+        isStringEmpty2.or(isStringBlank2).test(""); // true
+
 
 
     }
