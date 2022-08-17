@@ -4,7 +4,7 @@ public class InPackageClass {
 
     public void printAuth() {
         AccessModifier accessModifier = new AccessModifier();
-        accessModifier.Auth = true;
+        accessModifier.packageAuth = true;
     }
 
 
