@@ -1,6 +1,8 @@
 package EffectiveJava.ExampleCode;
 
-public class CmmFileBean {
+import java.util.Objects;
+
+public class FileBean {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 4283471324238531001L;
@@ -20,12 +22,12 @@ public class CmmFileBean {
 
     public String id_prefix;
 
-    public CmmFileBean(String primaryKey) {
+    public FileBean(String primaryKey) {
         this.id_prefix = primaryKey;
     }
 
     public String getID_PREFIX() {
-        return id_prefix;
+        return Objects.requireNonNullElse(id_prefix, "");
     }
 
     public void setID_PREFIX(String ID_PREFIX) {this.id_prefix = ID_PREFIX;}
