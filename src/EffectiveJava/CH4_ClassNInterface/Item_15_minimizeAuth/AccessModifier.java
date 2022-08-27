@@ -7,7 +7,9 @@ import EffectiveJava.ExampleCode.ExampleOnlyUse;
 import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AccessModifier {
 
@@ -19,41 +21,6 @@ public class AccessModifier {
 
     public static void main(String[] args) {
 
-
-        // 단일책임원칙 (SRP) VS 캡슐화 (Encapsulation)
-        //
-
-        // Encapsulation을 철저히 하라 ( 정보 은닉 )
-        // 1. 시스템 개발 속도를 높인다
-        // 자원예약과-일정 모듈 2명
-        // 자원예약 모듈 1명 / 일정 모듈 1명
-        // 두 가지를 개발하는 측면에서의 효율성을 생각해보라
-
-        // 두 개발자의 코딩 스타일이 확연히 다르다면 다른 사람이 만든 기능을 이용하는 것에도 어려움이 많다.
-
-        // ex) 다국어에 대한 코드를 개발 > 수정하고 싶음 > 그러나 누군가가 내가 만든 메서드를 그대로 사용 > 수정할 때 다른 의존성을 고려하지 않으면 안된다.
-
-        // ex) 데이터 Map으로 전달 > 다른 개발자는 vo 선호 > vo -map 간 데이터 변환이 계속해서 발생하므로 코드가 길어지고 객체비용 많이 듬
-
-
-        // 2. 시스템 관리비용을 낮춘다.
-        // 컴포넌트별 의존성이 낮기 때문에 에러 범위를 좁힐 수 있다.
-        // +@ 다른 개발자가 만든 로직에서 에러가 발생 > 기능과 의존성을 이해하지 못한 상태에서 수정하면
-        // 사이드이팩트를 발생시킬 수 있다.
-        // + 성능 최적화 시 컴포넌트별로 측정 가능하다
-        // ( ex, 자원예악-일정-파일관리 모듈 & 3가지 분리 모듈 )
-
-        // 3. 단위테스트가 용이하다.
-        // 완성되지 않은 상태에서도 개별 컴포넌트의 기능들을 테스트 할 수 있다..
-
-        // 4.소프트웨어 재사용성을 높인다
-        // 오직 API와 같이 최소한도의 정보만으로 동작 가능한 프로그램이라면 낮선 환경에서도 잘 작동한다.
-        // KAKAO-MAP VS java applet visual Map
-        // java는 다른 언어에서의 동작을 보장할 수 없다.
-        // kakao는 어떤 언어이건 간에 정의된 api에 적합한 조건만을 준다면 작동을 보장한다
-
-        // 5. 문서를 덜 작성 가능하다.
-        // 로직이 숨겨지므로 api 문서일 경우 클라이언트가 호출하는 api가 줄어들며, 문서도 줄어든다.
 
         // PUBLIC : 모든 곳에서 접근 가능
         // 구현이 쉽고 편하나, 예상치 못한 쓰임이 있으며 공개 API의 경우 영구적으로 지원해야 한다.
