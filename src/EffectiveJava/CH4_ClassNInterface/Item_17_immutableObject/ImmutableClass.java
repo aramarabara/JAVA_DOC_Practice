@@ -16,9 +16,10 @@ public class ImmutableClass {
         Car car6 = Car.carWithNameNWheel("Deisy", 4);
 
         //성능을 위해 지연초기화 방식으로, 비용이 큰 final 필드는 나중에 초기화 하여 만들 수 있다
-
         it.hashCode();
 
+        // 불변 객체는 실패 원자성을 지닌다.
+        // 실패 원자성 : 예외 혹은 에러가 발생해도 불완전한 객체가 만들어지지 않음
 
     }
 
