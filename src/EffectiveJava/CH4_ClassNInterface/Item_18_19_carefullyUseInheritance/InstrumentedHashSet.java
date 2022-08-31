@@ -40,6 +40,8 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
         return modified;
     }
 
+
+
     public int getAddCount() {
         return addCount;
     }
