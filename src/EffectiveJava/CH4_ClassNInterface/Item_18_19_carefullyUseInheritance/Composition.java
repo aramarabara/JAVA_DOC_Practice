@@ -11,15 +11,14 @@ public class Composition {
         //상속은 내부구현 여부를 잘 파악해야 한다.
 
         // 상위클래스의 메서드를 Override 시 전혀 다른 작동방식이 나타날 수 있다.
-        System.out.println("상속 사용 시 : ");
+/*        System.out.println("상속 사용 시 : ");
         InstrumentedHashSet<String> instrumentedHashSet = new InstrumentedHashSet<String>();
 
         instrumentedHashSet.addAll(List.of("1", "2", "3"));
-        System.out.println(instrumentedHashSet.getAddCount());
+        System.out.println(instrumentedHashSet.getAddCount());*/
 
         //컴포지션은 내부구현 여부에 자유롭다
         // 실제 클래스가 아닌 Wrapper Class이기 때문에 상위클래스의 내부구현에 영향을 받지 않는다.
-
         System.out.println("Wrapper Class 사용 시(컴포지션) : ");
         NewInstrumentedHashSet newSet = new NewInstrumentedHashSet(new TreeSet());
         newSet.addAll(List.of("1", "2", "3"));
